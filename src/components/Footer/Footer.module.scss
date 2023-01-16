@@ -1,0 +1,50 @@
+.footer {
+    background: #fff;
+    padding: 45px 0 50px 0;
+
+    .top {
+        display: flex;
+        align-items: center;
+        padding-bottom: 52px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 42px;
+
+        .logo {
+            margin-right: 30%;
+        }
+
+        .menu {
+            .list {
+                display: flex;
+                gap: 40px;
+
+                .item {
+                    .link {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 24px;
+                        color: #292929;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+
+        .text {}
+
+        .icons {
+            display: flex;
+            gap: 16px;
+
+        }
+    }
+}

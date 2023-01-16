@@ -1,0 +1,33 @@
+.header {
+    background: #fff;
+    width: 100%;
+    min-height: 72px;
+
+    .header__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .burger {
+                margin-right: 20px;
+            }
+
+            .image {
+                margin-right: 41px;
+
+            }
+
+
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+        }
+
+    }
+}
