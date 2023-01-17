@@ -1,25 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.scss';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import { Route, Routes } from "react-router-dom";
+import "./App.scss";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Home from "./components/Home/Home";
+import Layout from "./components/Layout/Layout";
+import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
-
-    <div className='wrapper'>
-      <Header />
-      <main className='main'>
-        <Routes>
-          <Route path='/about' element={<About />} />
-          <Route path='/contacts' element={ <Contact/>} />
-        </Routes>
-        
-      </main>
-      <Footer />
-
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contacts" element={<Contact />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 
