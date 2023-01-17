@@ -1,5 +1,6 @@
-import './App.css';
+import './App.scss';
 import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
@@ -8,7 +9,8 @@ function App() {
     <div className='wrapper'>
       <Header />
       <main className='main'>
-        <About/>
+        <About />
+        <Contact/>
       </main>
       <Footer />
 

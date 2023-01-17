@@ -1,0 +1,42 @@
+@import "../../App.scss";
+.contacts__container {
+  .contacts__block {
+    max-width: 721px;
+    display: grid;
+    gap: 24px;
+    & > div:not(:last-child) {
+      border-bottom: 1px solid #eaeaea;
+    }
+    .contacts__title {
+      padding-bottom: 16px;
+    }
+    .call_center {
+      padding-bottom: 24px;
+      .label {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #808080;
+      }
+      .phone {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        color: #000000;
+      }
+    }
+    .contact {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 28px;
+      color: #000000;
+      padding-top: 24px;
+      .botLink {
+        color: $orange;
+      }
+      .phone {
+        color: #000000;
+      }
+    }
+  }
+}
