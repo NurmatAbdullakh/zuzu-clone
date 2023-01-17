@@ -1,16 +1,17 @@
 .header {
     background: #fff;
     width: 100%;
-    min-height: 72px;
+   padding: 9px 0;
 
     .header__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+align-content: center;
         .left {
             display: flex;
             align-items: center;
+           
 
             .burger {
                 margin-right: 20px;
