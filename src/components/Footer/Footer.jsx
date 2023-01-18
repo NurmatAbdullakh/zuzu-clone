@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
 import logo from "../../image/Logo.png";
 import { Facebook, Instagram, Telegram } from "../../utils/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Footer() {
   const links = [
@@ -18,6 +18,7 @@ export default function Footer() {
       href: "/contacts",
     },
   ];
+
   return (
     <footer className={styles.footer}>
       <div className={`${styles.top} container`}>
@@ -28,9 +29,14 @@ export default function Footer() {
           <ul className={styles.list}>
             {links.map((v) => (
               <li className={styles.item}>
-                <Link className={styles.link} to={v.href}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  to={v.href}
+                >
                   {v.htext}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
