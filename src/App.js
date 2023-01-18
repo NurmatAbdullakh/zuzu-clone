@@ -1,39 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import About from "./components/About/About";
-import Branches from "./components/Branchs/Branchs";
-import Contact from "./components/Contact/Contact";
-import Home from "./components/Home/Home";
-import Layout from "./components/Layout/Layout";
-import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
-const routes = [
-  {
-    path: "/",
-    element: <Layout />,
-    childs: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "branches",
-        element: <Branches />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "contacts",
-        element: <Contact />,
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
-  },
-];
+import { routes } from "./mock/routes";
 
 function App() {
   return (

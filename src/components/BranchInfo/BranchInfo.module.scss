@@ -1,0 +1,31 @@
+.branch__container {
+  .branch__block {
+    max-width: 843px;
+    .image {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    .branch__title {
+      margin-bottom: 16px;
+    }
+    .branch_text {
+      margin-bottom: 24px;
+    }
+    .info {
+      display: grid;
+      gap: 12px;
+      .label {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: #808080;
+      }
+      .data {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #292929;
+      }
+    }
+  }
+}

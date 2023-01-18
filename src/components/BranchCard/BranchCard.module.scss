@@ -1,4 +1,7 @@
 .branches__card {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr minmax(52px, auto);
   padding: 24px;
   background: #f8f8f8;
   box-shadow: 4px 0px 12px rgba(24, 21, 17, 0.04);
