@@ -2,6 +2,7 @@ import { Burger, Cart, Location, Man, ArrowBottom } from "../../utils/icons";
 import styles from "./Header.module.scss";
 import Logo from "../../image/Logo.png";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -11,7 +12,9 @@ export default function Header() {
           <div className={styles.burger}>
             <Burger />
           </div>
-          <img className={styles.image} src={Logo} alt="" />
+          <Link to="/">
+            <img className={styles.image} src={Logo} alt="" />
+          </Link>
           <Button icon={<Location />} text="Toshkent" />
         </div>
         <div className={styles.right}>

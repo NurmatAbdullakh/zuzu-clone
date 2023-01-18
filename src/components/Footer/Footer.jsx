@@ -21,7 +21,9 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.top} container`}>
-        <img className={styles.logo} src={logo} alt="" />
+        <Link className={styles.logo} to="/">
+          <img src={logo} alt="" />
+        </Link>
         <nav className={styles.menu}>
           <ul className={styles.list}>
             {links.map((v) => (
