@@ -1,0 +1,47 @@
+.branches__card {
+  padding: 24px;
+  background: #f8f8f8;
+  box-shadow: 4px 0px 12px rgba(24, 21, 17, 0.04);
+  border-radius: 18px;
+  display: grid;
+  gap: 16px;
+  .top {
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 12px;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      .txt {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #292929;
+      }
+      .icon {
+      }
+    }
+    .subtitle {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: #808080;
+    }
+  }
+  .bottom {
+    .txt {
+      margin-bottom: 8px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: #808080;
+    }
+    .info {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      color: #292929;
+    }
+  }
+}
