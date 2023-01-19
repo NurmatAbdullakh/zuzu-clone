@@ -1,0 +1,14 @@
+.products {
+  margin-bottom: 30px;
+  .products__container {
+    .products__title {
+      margin-bottom: 24px;
+      text-transform: capitalize;
+    }
+    .products__items {
+      display: grid;
+      gap: 24px 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+}
