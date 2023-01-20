@@ -4,8 +4,6 @@ import "./App.scss";
 import { routes } from "./mock/routes";
 
 function App() {
-  const products = useSelector((state) => state.products);
-  console.log(products);
   return (
     <Routes>
       {routes.map((v) => (

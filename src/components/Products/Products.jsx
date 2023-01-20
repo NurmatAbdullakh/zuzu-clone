@@ -1,7 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./Products.module.scss";
 
-export default function Products({ category, products }) {
+export default function Products({ onButtonClick, category, products }) {
   return (
     <div className={styles.products}>
       <div className={`${styles.products__container} container`}>
@@ -10,6 +10,9 @@ export default function Products({ category, products }) {
         <div className={styles.products__items}>
           {products.map((product) => (
             <ProductCard
+              onButtonClick={() => {
+                onButtonClick(product.id);
+              }}
               title={product.title}
               description={product.description}
               price={product.price}
