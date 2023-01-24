@@ -4,15 +4,32 @@ import { CloseIcon } from "../../utils/icons";
 import { Button, Paper } from "@mui/material";
 import { sizeHeight } from "@mui/system";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewOrderAC } from "../../redux/productsReducer";
 
 export default function Order({ product, onCloseClick }) {
   const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
+  const orders = useSelector((state) => state.products.orders);
+
   const onDec = () => {
     if (count > 1) setCount(count - 1);
   };
   const onInc = () => {
     setCount(count + 1);
   };
+
+  const onAddButtonClick = (product, count) => {
+    const newOrder = {
+      ...product,
+      count,
+      totalSum: product.price * count,
+      orderId: product.title + count,
+    };
+    dispatch(addNewOrderAC(newOrder));
+    onCloseClick();
+  };
+  console.log(orders);
   return (
     <Paper>
       <div className={styles.order}>
@@ -74,6 +91,9 @@ export default function Order({ product, onCloseClick }) {
             </div>
             <div className={styles.content__add}>
               <Button
+                onClick={() => {
+                  onAddButtonClick(product, count);
+                }}
                 sx={{
                   background: "#EC8D1E",
                   borderRadius: 100,

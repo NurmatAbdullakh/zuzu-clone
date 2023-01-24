@@ -1,5 +1,7 @@
 import pizza from "../image/pizza.jpg";
 
+export const ADD_NEW_ORDER = "ADD_NEW_ORDER";
+
 const initialState = {
   data: [
     {
@@ -131,13 +133,16 @@ const initialState = {
       ],
     },
   ],
+  orders: [],
 };
 
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "":
-      return "";
+    case ADD_NEW_ORDER:
+      return { ...state, orders: [action.newOrder, ...state.orders] };
     default:
       return state;
   }
 };
+
+export const addNewOrderAC = (newOrder) => ({ type: ADD_NEW_ORDER, newOrder });
