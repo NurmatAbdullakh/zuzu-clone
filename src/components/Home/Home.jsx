@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../../redux/productsReducer";
+import Categories from "../Categories/Categories";
 import Order from "../Order/Order";
 import Products from "../Products/Products";
 
@@ -15,9 +16,8 @@ export default function Home() {
   const handleClose = () => setOpen(false);
 
   const onProductButtonClick = (id) => {
-    const products = categories.reduce((t, v) => [...t, ...v.products], []);
-    setCurrentProduct(products.find((v) => v.id === id));
     handleOpen();
+    setCurrentProduct(categories.find((v) => v.id === id));
   };
 
   useEffect(() => {
@@ -34,9 +34,10 @@ export default function Home() {
         console.log("finally=>>>");
       });
   }, []);
+
   const formatCategories = (arr) => {
     const categories = arr.reduce(
-      (total, v, i, array) =>
+      (total, v) =>
         total.includes(v.category) ? total : [...total, v.category],
       []
     );
@@ -47,12 +48,14 @@ export default function Home() {
       ];
     }, []);
   };
-  const formattedCategories = formatCategories(categories);
-  console.log("formattedCategories===>>>", formattedCategories);
+
   return (
     <>
-      {formattedCategories.map((v) => (
+      <Categories />
+      {formatCategories(categories)?.map((v) => (
         <Products
+          id={v.category}
+          key={categories.category}
           onButtonClick={onProductButtonClick}
           category={v.category}
           products={v.products}

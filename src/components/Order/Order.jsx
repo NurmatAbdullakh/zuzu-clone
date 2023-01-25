@@ -2,7 +2,6 @@ import styles from "./Order.module.scss";
 import pizza from "../../image/pizza.jpg";
 import { CloseIcon } from "../../utils/icons";
 import { Button, Paper } from "@mui/material";
-import { sizeHeight } from "@mui/system";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewOrderAC } from "../../redux/productsReducer";
