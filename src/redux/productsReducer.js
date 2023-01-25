@@ -3,6 +3,7 @@ import pizza from "../image/pizza.jpg";
 
 export const ADD_NEW_ORDER = "ADD_NEW_ORDER";
 export const SET_DATA = "SET_DATA";
+export const SET_CATEGORIES = "SET_CATEGORIES";
 
 const initialState = {
   data: [
@@ -136,6 +137,7 @@ const initialState = {
     // },
   ],
   orders: [],
+  categories: [],
 };
 
 export const productsReducer = (state = initialState, action) => {
@@ -144,6 +146,8 @@ export const productsReducer = (state = initialState, action) => {
       return { ...state, data: [...action.data] };
     case ADD_NEW_ORDER:
       return { ...state, orders: [action.newOrder, ...state.orders] };
+    case SET_CATEGORIES:
+      return { ...state, categories: [...action.categories] };
     default:
       return state;
   }
@@ -151,3 +155,7 @@ export const productsReducer = (state = initialState, action) => {
 
 export const addNewOrderAC = (newOrder) => ({ type: ADD_NEW_ORDER, newOrder });
 export const setData = (data) => ({ type: SET_DATA, data });
+export const setCategories = (categories) => ({
+  type: SET_CATEGORIES,
+  categories,
+});

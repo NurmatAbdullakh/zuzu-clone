@@ -2,7 +2,7 @@ import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setData } from "../../redux/productsReducer";
+import { setCategories, setData } from "../../redux/productsReducer";
 import Categories from "../Categories/Categories";
 import Order from "../Order/Order";
 import Products from "../Products/Products";
@@ -10,8 +10,10 @@ import Products from "../Products/Products";
 export default function Home() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.products.data);
+
   const [currentProduct, setCurrentProduct] = useState({});
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -21,17 +23,23 @@ export default function Home() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
-        // console.log("then=>>>", response.data);
         dispatch(setData(response.data));
       })
       .catch((error) => {
         console.log("catch=>>>>", error);
       })
       .finally(() => {
+        setIsLoading(false);
         console.log("finally=>>>");
+      });
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then((response) => {
+        dispatch(setCategories(response.data));
       });
   }, []);
 
@@ -52,15 +60,17 @@ export default function Home() {
   return (
     <>
       <Categories />
-      {formatCategories(categories)?.map((v) => (
-        <Products
-          id={v.category}
-          key={categories.category}
-          onButtonClick={onProductButtonClick}
-          category={v.category}
-          products={v.products}
-        />
-      ))}
+      {isLoading
+        ? "loading ...."
+        : formatCategories(categories)?.map((v) => (
+            <Products
+              id={v.category}
+              key={categories.category}
+              onButtonClick={onProductButtonClick}
+              category={v.category}
+              products={v.products}
+            />
+          ))}
       <Modal
         open={open}
         onClose={handleClose}
